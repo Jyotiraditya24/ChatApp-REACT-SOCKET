@@ -18,8 +18,13 @@ app.use("/chat", chatRoute);
 app.use("/auth", authRoute);
 
 /* MONGO DB CONNECTION */
-mongoose.connect(process.env.MONGO_URL).then(() => {
-  server.listen(3001, () => {
-    console.log("server running on 3001");
+mongoose
+  .connect(process.env.MONGO_URL)
+  .then(() => {
+    server.listen(3001, () => {
+      console.log("Server running on port 3001");
+    });
+  })
+  .catch((error) => {
+    console.error("Failed to connect to MongoDB:", error);
   });
-});
