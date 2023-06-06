@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const chatSchema = new mongoose.Schema(
+const ChatSchema = new mongoose.Schema(
   {
     members: {
       type: Array,
@@ -9,6 +9,6 @@ const chatSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const ChatModel = mongoose.model("Chat", chatSchema);
+const ChatModel = mongoose.model("Chat", ChatSchema);
 
 export default ChatModel;
