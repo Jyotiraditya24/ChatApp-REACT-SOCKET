@@ -1,4 +1,4 @@
-import { Mongoose } from "mongoose";
+import mongoose from "mongoose";
 import MessageModel from "../models/MessageModel.js";
 
 export const addMessage = async (req, res) => {
@@ -10,18 +10,18 @@ export const addMessage = async (req, res) => {
       text: text,
     });
     const savedMessage = await newMessage.save();
-    res.send(201).json(savedMessage);
+    res.status(201).json(savedMessage);
   } catch (error) {
-    res.send(500).json(error);
+    res.status(500).json(error);
   }
 };
 
 export const getMessages = async (req, res) => {
   try {
     const { chatId } = req.params;
-    const result = await Mongoose.find({ chatId });
+    const result = await MessageModel.find({ chatId });
     res.status(200).json(result);
   } catch (err) {
-    res.send(500).json(err);
+    res.status(500).json(err);
   }
 };
