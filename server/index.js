@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import chatRoute from "./routes/chat.js";
 import authRoute from "./routes/auth.js";
+import messageRoute from "./routes/message.js";
 import http from "http";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
@@ -16,6 +17,7 @@ const server = http.createServer(app);
 
 app.use("/chat", chatRoute);
 app.use("/auth", authRoute);
+app.use("/message", messageRoute);
 
 /* MONGO DB CONNECTION */
 mongoose
